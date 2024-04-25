@@ -1,0 +1,13 @@
+*.gdj
+/.gradle
+/.godot
+/local.properties
+*.build_version
+*.gdignore
+
+/app/build
+/plugin/build
+/build
+
+/android/build/*
+!/android/build/AndroidManifest.xml
