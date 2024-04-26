@@ -9,6 +9,4 @@
 /app/build
 /plugin/build
 /build
-
-/android/build/*
-!/android/build/AndroidManifest.xml
+/android/build/
