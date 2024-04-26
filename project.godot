@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="WebViewTest"
-run/main_scene="res://app/src/main/kotlin/dev/toastbits/webviewtest/scene/main/Main.tscn"
+config/name="GodotComposeExample"
+run/main_scene="res://app/scene/main/Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,7 +21,7 @@ window/handheld/orientation=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/WebViewTestAndroidPlugin/plugin.cfg")
+enabled=PackedStringArray("res://addons/ComposeAndroidPlugin/plugin.cfg")
 
 [rendering]
 

@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdnwwicxoh2ji"]
+
+[ext_resource type="Script" path="res://app/scene/main/AndroidViewNode.gd" id="1_rsyts"]
+[ext_resource type="Script" path="res://app/scene/main/VBoxContainer.gd" id="2_vgso6"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="AndroidViewNode" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("1_rsyts")
+view_data = "foo"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+script = ExtResource("2_vgso6")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Built-in Godot UI"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Pressed 0 times"
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer/Button" to="CanvasLayer/MarginContainer/VBoxContainer/VBoxContainer" method="_on_button_pressed"]

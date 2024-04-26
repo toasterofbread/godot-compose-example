@@ -1,17 +1,17 @@
 @tool
 extends EditorPlugin
 
-var instance: WebViewTestAndroidPlugin
+var instance: ComposeAndroidPlugin
 
 func _enter_tree():
-	instance = WebViewTestAndroidPlugin.new()
+	instance = ComposeAndroidPlugin.new()
 	add_export_plugin(instance)
 
 func _exit_tree():
 	remove_export_plugin(instance)
 	instance = null
 
-class WebViewTestAndroidPlugin extends EditorExportPlugin:
+class ComposeAndroidPlugin extends EditorExportPlugin:
 	func _supports_platform(platform):
 		if platform is EditorExportPlatformAndroid:
 			return true
@@ -24,10 +24,15 @@ class WebViewTestAndroidPlugin extends EditorExportPlugin:
 			return PackedStringArray(["../plugin/build/outputs/aar/plugin-release.aar"])
 
 	func _get_android_dependencies(platform, debug):
-		return PackedStringArray([])
+		var compose_version: String = "1.6.1"
+		return PackedStringArray([
+			"org.jetbrains.compose.runtime:runtime:" + compose_version,
+			"org.jetbrains.compose.foundation:foundation:" + compose_version,
+			"org.jetbrains.compose.material3:material3:" + compose_version
+		])
 
 	func _get_android_dependencies_maven_repos(platform, debug):
 		return PackedStringArray([])
 
 	func _get_name():
-		return "WebViewTestAndroidPlugin"
+		return "ComposeAndroidPlugin"
